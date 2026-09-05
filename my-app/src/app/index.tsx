@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    alignItems: "center",
+    flex: 1,
+    width: "100%",
     backgroundColor: "#DFF6FA",
   },
 });

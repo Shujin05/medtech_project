@@ -1,11 +1,12 @@
 import { useState } from "react";
 import {
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   View,
-  ScrollView,
 } from "react-native";
+
 import PrimaryButton from "@/components/PrimaryButton";
 import ExerciseCard from "@/components/treatment-plan/ExerciseCard";
 import RecommendationCard from "@/components/treatment-plan/RecommendationCard";
@@ -68,19 +69,14 @@ export default function TreatmentPlanScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollContent}
         >
-          {/* Header */}
-
           <Text style={styles.title}>
             Crafting your personalised{"\n"}
             treatment plan...
           </Text>
-
-          {/* Exercise options */}
 
           <View style={styles.exerciseList}>
             {exercises.map((exercise) => (
@@ -100,22 +96,23 @@ export default function TreatmentPlanScreen() {
             ))}
           </View>
 
-          {/* Recommendation */}
+          <View style={styles.section}>
+            <RecommendationCard />
+          </View>
 
-          <RecommendationCard />
+          <View style={styles.section}>
+            <PlanSummary
+              selectedCount={selectedExercises.length}
+              exerciseCount={totalExercises}
+            />
+          </View>
 
-          {/* Summary */}
-
-          <PlanSummary
-            selectedCount={selectedExercises.length}
-            exerciseCount={totalExercises}
-          />
-
-          <PrimaryButton
-             title="Start My Plan!"
-            onPress={() => router.push("/dashboard")}
-          />
-
+          <View style={styles.buttonContainer}>
+            <PrimaryButton
+              title="Start My Plan!"
+              onPress={() => router.push("/dashboard")}
+            />
+          </View>
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -130,13 +127,14 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
+    width: "100%",
     backgroundColor: "#DFF6FA",
   },
 
   scrollContent: {
     alignItems: "center",
-    paddingTop: 32,
-    paddingBottom: 25,
+    paddingTop: 28,
+    paddingBottom: 35,
   },
 
   title: {
@@ -145,12 +143,22 @@ const styles = StyleSheet.create({
     lineHeight: 28,
     fontWeight: "800",
     color: "#101010",
-    marginBottom: 15,
+    marginBottom: 18,
   },
 
   exerciseList: {
     width: "86%",
-    gap: 7,
+    gap: 9,
   },
 
+  section: {
+    width: "86%",
+    marginTop: 10,
+  },
+
+  buttonContainer: {
+    marginTop: 20,
+    alignItems: "center",
+    width: "100%",
+  },
 });
