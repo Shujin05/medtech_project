@@ -10,7 +10,7 @@ export default function ProgressPhoto() {
     <View style={styles.container}>
       <View style={styles.photoWrapper}>
         <Image
-          source={require("@/assets/images/icon.png")}
+          source={require("@/assets/images/face_analysis.jpg")}
           style={styles.photo}
         />
 

@@ -18,10 +18,11 @@ export default function useAnalysisProgress({
     const timer = setInterval(() => {
       setProgress((current) => {
         if (current >= 100) {
-          return 0;
+          clearInterval(timer);
+          return 100;
         }
 
-        return current + increment;
+        return Math.min(current + increment, 100);
       });
     }, interval);
 

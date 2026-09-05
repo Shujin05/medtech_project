@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
   Text,
   View,
-  Pressable,
   ScrollView,
 } from "react-native";
-
+import PrimaryButton from "@/components/PrimaryButton";
 import ExerciseCard from "@/components/treatment-plan/ExerciseCard";
 import RecommendationCard from "@/components/treatment-plan/RecommendationCard";
 import PlanSummary from "@/components/treatment-plan/PlanSummary";
+import { router } from "expo-router";
 
 export default function TreatmentPlanScreen() {
   const [selectedExercises, setSelectedExercises] = useState([
@@ -111,21 +111,10 @@ export default function TreatmentPlanScreen() {
             exerciseCount={totalExercises}
           />
 
-          {/* Start button */}
-
-          <Pressable
-            style={({ pressed }) => [
-              styles.startButton,
-              pressed && styles.buttonPressed,
-            ]}
-            onPress={() => {
-              console.log("Starting treatment plan");
-            }}
-          >
-            <Text style={styles.startButtonText}>
-              Start My Plan!
-            </Text>
-          </Pressable>
+          <PrimaryButton
+             title="Start My Plan!"
+            onPress={() => router.push("/dashboard")}
+          />
 
         </ScrollView>
       </View>
@@ -164,24 +153,4 @@ const styles = StyleSheet.create({
     gap: 7,
   },
 
-  startButton: {
-    width: "62%",
-    height: 45,
-    borderRadius: 25,
-    backgroundColor: "#2875A8",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 10,
-  },
-
-  startButtonText: {
-    color: "#FFFFFF",
-    fontSize: 15,
-    fontWeight: "800",
-  },
-
-  buttonPressed: {
-    opacity: 0.8,
-    transform: [{ scale: 0.98 }],
-  },
 });

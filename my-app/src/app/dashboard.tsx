@@ -12,6 +12,8 @@ import ProgressPhoto from "@/components/dashboard/ProgressPhoto";
 import ScoreCard from "@/components/dashboard/ScoreCard";
 import RecoveryChart from "@/components/dashboard/RecoveryChart";
 import GoalProgress from "@/components/dashboard/GoalProgress";
+import { router } from "expo-router";
+import PrimaryButton from "@/components/PrimaryButton";
 
 
 // Sample data (assume from backend)
@@ -132,6 +134,13 @@ export default function Dashboard() {
             time={recoveryProgress.time}
         />
 
+        <View style={styles.buttonContainer}>
+          <PrimaryButton
+              title="Retake Analysis"
+              onPress={() => router.push("/")}
+          />
+        </View>
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -181,5 +190,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#303030",
     marginTop: 1,
+  },
+
+  buttonContainer: {
+    alignItems: "center",
+    marginTop: 20,
   },
 });

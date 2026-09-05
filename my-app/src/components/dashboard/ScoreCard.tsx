@@ -25,7 +25,6 @@ export default function ScoreCard({
     <View style={styles.scoreCard}>
       <View style={styles.circle}>
         <Svg width={SIZE} height={SIZE}>
-          {/* Background */}
           <Circle
             cx={SIZE / 2}
             cy={SIZE / 2}
@@ -35,7 +34,6 @@ export default function ScoreCard({
             fill="none"
           />
 
-          {/* Progress */}
           <Circle
             cx={SIZE / 2}
             cy={SIZE / 2}

@@ -8,7 +8,9 @@ import FaceCircle from "./FaceCircle";
 import ProgressBar from "./ProgressBar";
 import LoadingSpinner from "./LoadingSpinner";
 import LandmarkStats from "./LandmarkStats";
+import PrimaryButton from "@/components/PrimaryButton";
 
+import {router} from "expo-router";
 import useAnalysisProgress from "@/hooks/useAnalysisProgress";
 
 // dummy stats data 
@@ -45,7 +47,7 @@ export default function AnalysisSection() {
 
       <FaceCircle
         progress={progress}
-        imageSource={require("@/assets/images/icon.png")}
+        imageSource={require("@/assets/images/face_analysis.jpg")}
       />
 
       <View style={styles.analysisContent}>
@@ -63,6 +65,12 @@ export default function AnalysisSection() {
 
         <LandmarkStats 
         stats={stats}
+        />
+
+        <PrimaryButton
+          title="View Treatment Plan"
+          onPress={() => router.push("/treatment-plan")}
+          disabled={progress < 100}
         />
       </View>
 
