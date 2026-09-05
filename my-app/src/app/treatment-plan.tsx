@@ -15,11 +15,11 @@ import { router } from "expo-router";
 
 export default function TreatmentPlanScreen() {
   const [selectedExercises, setSelectedExercises] = useState([
-    "smiling",
-    "eyebrow",
+    1,
+    2,
   ]);
 
-  const toggleExercise = (id: string) => {
+  const toggleExercise = (id: number) => {
     setSelectedExercises((current) => {
       if (current.includes(id)) {
         return current.filter((item) => item !== id);
@@ -31,7 +31,7 @@ export default function TreatmentPlanScreen() {
 
   const exercises = [
     {
-      id: "smiling",
+      id: 1,
       title: "Smiling Movements",
       exerciseCount: 7,
       description:
@@ -39,7 +39,7 @@ export default function TreatmentPlanScreen() {
       difficulty: 5,
     },
     {
-      id: "eyebrow",
+      id: 2,
       title: "Eyebrow Movements",
       exerciseCount: 5,
       description:
@@ -47,7 +47,7 @@ export default function TreatmentPlanScreen() {
       difficulty: 5,
     },
     {
-      id: "cheek",
+      id: 3,
       title: "Cheek Movements",
       exerciseCount: 5,
       description:
