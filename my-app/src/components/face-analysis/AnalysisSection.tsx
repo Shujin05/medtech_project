@@ -38,35 +38,29 @@ export default function AnalysisSection() {
   return (
     <View style={styles.container}>
 
-      {/* Instructions */}
       <Text style={styles.instructions}>
         Move your head completely{"\n"}
         to complete the circle
       </Text>
 
-      {/* Face + dotted progress ring */}
       <FaceCircle
         progress={progress}
         imageSource={require("@/assets/images/icon.png")}
       />
 
-      {/* Progress bar */}
       <View style={styles.analysisContent}>
         <ProgressBar
           progress={progress}
         />
 
-        {/* Analysis text */}
         <Text style={styles.text}>
           Analyzing facial landmarks...
         </Text>
 
-        {/* Spinner */}
         <LoadingSpinner
           progress={progress}
         />
 
-        {/* Stats */}
         <LandmarkStats 
         stats={stats}
         />
